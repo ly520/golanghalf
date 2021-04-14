@@ -1,5 +1,7 @@
 * [第一章 GO基础](1/readme.md)
-    * [1.1 语法](1/lang.md)
+    * [1.1 golang初体验](1/chujian.md)
+    * [1.2 概览-潜规则](1/chujian.md)
+    * [1.3 语法](1/lang.md)
 
 * [第二章 数据结构](2/readme.md)
     * [2.1 数值](2/number.md)

@@ -1,3 +1,3 @@
-# Headline
+# go语言一知半解
 
-> An awesome project.
+!> golang一知半解，自我学习golang总结。半是收集办事理解，权作知识留存
