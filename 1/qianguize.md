@@ -36,6 +36,7 @@ golang 初体验
 > 以上就是go程序的基本结构了，这其中还有一些潜规则需要注意，这些潜规则是和其他语言十分不同的
 
 ## 潜规则
+
 !> 1、`{` 左花括号不能独立一行
 ``` go
 func main() {
@@ -46,6 +47,70 @@ func main() {
 		fmt.Println("false")
 	}
 }
+```
+!> 不过也有例外，`select`的`case`分支的代码块中`{`可以独立一行,但是`case`的花括号不是必须的：
+```go 
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	char_ch, num_ch := make(chan bool), make(chan bool)
+	wg := sync.WaitGroup{}
+
+	go func() {
+		i := 1
+		for {
+			select {
+			case <-num_ch:
+				{ // 这里的{可以独立一行，但是{}在这里不是必须的
+					fmt.Println(i)
+					i++
+					fmt.Println(i)
+					i++
+
+					char_ch <- true
+				}
+			default:
+				{
+					break
+				}
+			}
+
+		}
+	}()
+	wg.Add(1)
+
+	go func(wait *sync.WaitGroup) {
+		i := 'A'
+		for {
+			select {
+			case <-char_ch:
+				if i >= 'Z' {
+					wg.Done()
+					return
+				}
+				fmt.Println(string(i))
+				i++
+				fmt.Println(string(i))
+				i++
+
+				num_ch <- true
+			default:
+				break
+			}
+
+		}
+	}(&wg)
+
+	num_ch <- true // 给num_ch一个初始值
+	wg.Wait()
+}
+
+
 ```
 
 !> 2、golang单行代码不需要分号`;`,编译器会自动添加。一行有句代码，则最后一句不需要分号。
@@ -69,8 +134,8 @@ func t() bool {
 !> 4、init函数是自动调用的，且没有参数和返回值。init函数每个包可以有多个，同一个文件也可以有多个，go将按规则一次访问。
 
 !> 5、go自带单元测试工具，单元测试的代码文件必须以`"_test.go"`结束，如：`main_test.go`会被识别问单元测试代码文件。
-* 单元测试函数必须以`"Test"`开始，且参数为`*testing.T`类型
-* 性能测试函数必须以`"Benchmark"`开始，且参数为`*testing.B`类型
+* 单元测试函数名必须以`"Test"`开始，且参数为`*testing.T`类型
+* 性能测试函数名必须以`"Benchmark"`开始，且参数为`*testing.B`类型
 ``` go 
 // 单元测试
 func TestFirst(t *testing.T) {
