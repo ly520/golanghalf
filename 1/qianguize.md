@@ -50,6 +50,7 @@ func main() {
 ```
 !> 不过也有例外，`select`的`case`分支的代码块中`{`可以独立一行,但是`case`的花括号不是必须的：
 ```go 
+// 该程序交替打印数字和字母
 package main
 
 import (
