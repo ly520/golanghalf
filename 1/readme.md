@@ -1,1 +1,1 @@
-first readme
+# GO 基础
