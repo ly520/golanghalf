@@ -11,16 +11,18 @@
     * [2.3 切片](2/slice.md)
     * [2.5 字典](2/map.md)
     * [2.6 结构](2/struct.md)
-    * [2.7 接口](2/interface.md)
+    * [2.7 方法](2/fangfa.md)
+    * [2.8 函数](2/hanshu.md)
+    * [2.9 接口](2/interface.md)
   
-* [第三章 高级主题](6/readme.md)
-    * [3.1 通道](6/channel.md)
+* [第三章 高级主题](3/readme.md)
+    * [3.1 通道](3/channel.md)
 
-* [第四章 GO坑Go坑](3/readme.md)
-    * [4.1 基础](3/base.md)
+* [第四章 GO坑Go坑](4/readme.md)
+    * [4.1 基础](4/base.md)
 
-* [第五章 奇技淫巧](4/readme.md)
-    * [5.1 选项模式](4/option.md)
+* [第五章 奇技淫巧](5/readme.md)
+    * [5.1 选项模式](5/option.md)
   
-* [第六章 魔鬼☺](5/readme.md)
-    * [6.1 魔鬼](5/devil.md "魔鬼来了")  
+* [第六章 魔鬼☺](6/readme.md)
+    * [6.1 魔鬼](6/devil.md "魔鬼来了")  

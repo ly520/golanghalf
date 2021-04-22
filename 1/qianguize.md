@@ -138,16 +138,15 @@ func t() bool {
 * 单元测试函数名必须以`"Test"`开始，且参数为`*testing.T`类型
 * 性能测试函数名必须以`"Benchmark"`开始，且参数为`*testing.B`类型
 ``` go 
-// 单元测试
-func TestFirst(t *testing.T) {
+	// 单元测试
+	func TestFirst(t *testing.T) {
 
-}
-// 性能测试
-func BenchmarkFirst(b *testing.B) {
+	}
+	// 性能测试
+	func BenchmarkFirst(b *testing.B) {
 
-}
+	}
 
 ```
-
 !> 6、go程序包名与文件无需相同，但一个文件夹只能包含一个包名。如果一个文件夹中的不同文件使用不同的包名，那么会编译失败。
 

@@ -22,6 +22,16 @@
       repo: ''
     }
 
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-go.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-powershell.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
     const gitalk = new Gitalk({
       clientID: '1f3768af6b09ca9c8bee',
       clientSecret: 'e9f9f1fe0d56112f6c228e2d9c77b6599a7d16ce',
@@ -29,16 +39,10 @@
       owner: 'ly520',
       admin: ['ly520'],
       // facebook-like distraction free mode
-      distractionFreeMode: false
+      distractionFreeMode: false,
+      createIssueManually:true
     })
   </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-go.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-powershell.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 </body>
 
 </html>

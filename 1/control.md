@@ -30,7 +30,8 @@ if condition {
 }
 ```
 
-### go 的独特指出在于if条件可以跟一个语句，然后再判断。go语言函数支持多返回值，而我们经常要判断函数的执行是否成功、是否返回了错误，这将非常有用，大大提升了可读性。
+!> go 的独特指出在于if条件可以跟一个语句，然后再判断。go语言函数支持多返回值，而我们经常要判断函数的执行是否成功、是否返回了错误，这将非常有用，大大提升了可读性。
+
 ```
 if statement;condition{
     //do something
@@ -154,7 +155,7 @@ func main() {
 ## type switch
 `Type Switch` 是 `Go` 语言中一种特殊的 `switch `语句，它比较的是类型而不是具体的值。它判断接口变量的类型，然后根据具体类型再做相应处理。
 
-!> `Type Switch` 语句的 `case` 子句中不能使用`fallthrough`。
+!> `Type Switch` 语句的 `case` 子句中不能使用`fallthrough`。类型断言语法：`变量名.(type)`
 
 基础语法如下：
 ```go 
@@ -281,7 +282,7 @@ label:
 select 专用于等待一个或者多个channel的输出,以简化channel的操作
 
 #### 基本用法
-```
+```go
     // select基本用法
     select {
     case <- chan1:

@@ -147,7 +147,7 @@ func funcMap(m map[string]string) {
 ### 哈希
 map的底层使用的是数组来存储数据的，map会将key通过哈希算法得出一个哈希值，这个哈希值在对数组长度求余得出的结果就是数组的下标，数据便会被存储到这个下标对应的数组位置上。
 
-![alt="map"](/images/map.png)
+![alt="map"](../images/map.png)
 
 哈希算法：
 * 将任意长度的输入计算为相同长度的输出的一种算法。
@@ -175,4 +175,4 @@ map的底层使用的是数组来存储数据的，map会将key通过哈希算�
 ### Go语言的map实现
 go语言的map同样也是数组存储的，也是使用拉链法来解决哈希碰撞的。每个数组下标处存储的是一个bucket,每个bucket中可以存储8个kv键值对，当每个bucket存储的kv对到达8个之后，会通过overflow指针指向一个新的bucket，从而形成一个链表。[map实现](https://blog.csdn.net/u010853261/article/details/99699350)
 
-![alt="hash"](/images/hash.png) 
+![alt="hash"](../images/hash.png) 

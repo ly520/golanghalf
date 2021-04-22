@@ -19,7 +19,51 @@ type Car struct {
 	Color          string
 	Seat           int
 }
+
 ```
+### 大小写
+!> 与go语言变量规则相同，小写开头的字段仅可在当前包内使用。在包外不可访问
+```go
+package car
+
+type Car2 struct {
+	name           string
+	Weight, Height float32
+	IsRipe         bool
+	color          string
+	seat           int
+}
+
+func (c *Car2) Set() *Car2 {
+	c.name = "123"  // 小写字段在包内可访问
+	c.Weight = 123
+	c.seat = 56
+
+	return c
+}
+```
+我们尝试在`main`包中访问时：会引发编译错误
+
+```go 
+package main
+
+import (
+	"cc/car"
+	"fmt"
+	"time"
+)
+
+func main() {
+	c := new(car.Car2)
+	c.Set()
+	c.name = "golang"  // 编译错误：c.name undefined (type *car.Car2 has no field or method name)
+	fmt.Println(c.name)
+	fmt.Println(c.Weight)
+	fmt.Println(c.seat)
+}
+
+```
+
 #### 组合嵌套
 go语言的结构体能通过组合嵌套的方式实现继承
 ``` go 
