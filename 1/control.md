@@ -97,6 +97,30 @@ func main() {
 	}
 }
  ```
+!> `range`循环会复制对象，因此不建议直接遍历数组，改而使用slice，或集合的指针：
+
+ ``` go
+ func main() {
+	a := [3]int{1, 2, 3}
+
+	for i, v := range a {
+		if i == 0 {
+			a[1], a[2] = 500, 600
+			fmt.Println(a)
+		}
+		a[i] = v + 100 // v 是从a中复制出来的数据，因此上面的更改不影响v的值，所以最终输出为100,101,102
+	}
+	fmt.Println(a)
+}
+
+```
+
+ 输出：
+
+``` bash
+	[1 222 333]
+	[101 102 103]
+```
 
 ## switch
 go语言的`switch`语句和其他语言几乎一致，可以像`java`、`C#`一样工作，不同之处在于：
@@ -279,7 +303,15 @@ label:
 ```
 
 ## select
-select 专用于等待一个或者多个channel的输出,以简化channel的操作
+select 专用于等待一个或者多个channel的输出,以简化channel的操作。select会监听case语句中channel的读写操作，当case中channel读写操作为非阻塞状态（即能读写）时，将会触发相应的动作。 
+
+```
+* 只用于`channel`： `select`中的`case`语句必须是一个`channel`操作
+* `default`不阻塞： select中的default子句总是可运行的，即不会阻塞，通常用于超时处理。
+* 随机执行一个：有多个case都可以运行时，`select`会随机公平地选出一个执行，其他不会执行。
+* 执行`default`： 没有可运行的`case`语句时，且有`default`语句，那么就会执行`default`的动作。
+* `select`将阻塞：没有可运行的`case`语句时，且没有`default`语句，`select`将阻塞，直到某个`case`通信可以运行
+```
 
 #### 基本用法
 ```go
