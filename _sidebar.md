@@ -14,6 +14,7 @@
     * [2.7 方法](2/fangfa.md)
     * [2.8 函数](2/hanshu.md)
     * [2.9 接口](2/interface.md)
+    * [2.10 错误处理](2/error.md)
   
 * [第三章 高级主题](3/readme.md)
     * [3.1 通道](3/channel.md)
