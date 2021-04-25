@@ -192,7 +192,7 @@ default:
      // todo
 }
 ```
-判断接口的类型
+判断接口的类型：
 ```go
 package main
 
