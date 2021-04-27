@@ -20,7 +20,7 @@
     * [3.1 通道](3/channel.md)
 
 * [第四章 GO坑Go坑](4/readme.md)
-    * [4.1 基础](4/base.md)
+    * [4.1 切片](4/slice.md)
 
 * [第五章 奇技淫巧](5/readme.md)
     * [5.1 选项模式](5/option.md)
